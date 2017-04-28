@@ -23,18 +23,21 @@ Configuration
   1. Copy all file to fuel\package\messages
   2. Copy file fuel\packages\messages\config\messages.php to \fuel\app\config and change it.
 
-  return array(
-    'js_alert_plugin' => 'default', // jQuery alert plugin: default || bootbox
-    'js_message_sesion_name' => 'js_message_sesion_name', // Sesion name 
-    'default_message_session_name' => 'default_message_session_name' // Sesion name 
-  );
+    return array(
+      'js_alert_plugin' => 'default', // jQuery alert plugin: default || bootbox
+      'js_message_sesion_name' => 'js_message_sesion_name', // Sesion name 
+      'default_message_session_name' => 'default_message_session_name' // Sesion name 
+    );
 
   Note: if using [Bootstrap](http://twitter.github.com/bootstrap) 
   1. Add 
+  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
    
   2. Change 
+  
     'js_alert_plugin' => 'bootbox',
+    
   
 Usage
 ====================
