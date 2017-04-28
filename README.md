@@ -9,6 +9,7 @@ Messages package for FuelPHP. Allows you to easily log and report messages.
      
 It is inspired by the [Message package by dbpolito](https://github.com/dbpolito/Fuel-Message). There are however a few key differences:
 
+* Support alert message with redirect page.
 * Support for block or thin Bootstrap alerts.
 * Suport javascript alert message, or [Bootbox](http://bootboxjs.com/) alert message.
 * Deferred rendering. The `Messages::get` method returns an array of View instances rather than a string.
@@ -17,8 +18,45 @@ It is inspired by the [Message package by dbpolito](https://github.com/dbpolito/
 
 Just like dbpolito's Message package the generated HTML makes use of [Bootstrap](http://twitter.github.com/bootstrap) CSS classes
 
+Configuration
+==================
+  1. Copy all file to fuel\package\messages
+  2. Copy file fuel\packages\messages\config\messages.php to \fuel\app\config and change it.
+
+  return array(
+    'js_alert_plugin' => 'default', // jQuery alert plugin: default || bootbox
+    'js_message_sesion_name' => 'js_message_sesion_name', // Sesion name 
+    'default_message_session_name' => 'default_message_session_name' // Sesion name 
+  );
+
+  Note: if using [Bootstrap](http://twitter.github.com/bootstrap) 
+  1. Add 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+   
+  2. Change 
+    'js_alert_plugin' => 'bootbox',
+  
 Usage
-=====
+====================
+
+  Using in curent page
+
+    public function action_index() {
+      \Messages::success('what you just did worked');
+      \Messages::js('something is really wrong', 'Thông báo');
+
+      $this->template = \View::forge('empty');
+      $view = \View::forge('home/index', $this->data);
+      $this->template->content = $view;
+    }
+    
+  Using with redirect page
+  
+    public function action_index() {
+      \Messages::success('what you just did worked');
+      \Messages::js('something is really wrong', 'Thông báo');
+      return \Fuel\Core\Response::redirect('home/index');
+    }
 
 Registering messages
 ====================
