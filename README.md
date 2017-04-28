@@ -20,8 +20,18 @@ Just like dbpolito's Message package the generated HTML makes use of [Bootstrap]
 
 Configuration
 ==================
-  1. Copy all file to fuel\package\messages
-  2. Copy file fuel\packages\messages\config\messages.php to \fuel\app\config and change it.
+
+  1. Add package name to your config file
+  
+    'always_load' => array(
+      'packages' => array(
+        //'orm',
+        'messages',
+      )
+    )
+
+  2. Copy all file to fuel\package\messages
+  3. Copy file fuel\packages\messages\config\messages.php to \fuel\app\config and change it.
 
     return array(
       'js_alert_plugin' => 'default', // jQuery alert plugin: default || bootbox
