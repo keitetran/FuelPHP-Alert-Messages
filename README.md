@@ -29,7 +29,7 @@ Configuration
       'default_message_session_name' => 'default_message_session_name' // Sesion name 
     );
 
-  Note: if using [Bootstrap](http://twitter.github.com/bootstrap) 
+  Note: if using [Bootbox](http://bootboxjs.com/)
   1. Add 
   
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
